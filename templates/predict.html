@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Predict</title>
+        <style>
+            body{
+                background-image:url("/static/images/background.jpg");
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size:cover;
+            }
+            .main{
+                position:fixed;
+                top:100px;
+                left:150px;
+                width:450px;
+                background-color:white;
+                border-radius: 10px;
+                align-items:center;
+                padding:5%;
+            }
+            h1{
+                color:black;
+                font-size:25px;
+                font-weight: bold;
+                font-family:sans-serif;
+            }
+            button{
+                background-color: bisque;
+                border:2px;
+                border-color: black;
+                cursor:pointer;
+            }
+        </style>
+    
+        </head>
+    <body>
+    <div align="center" class="main">
+        <h1>Please Enter the following details!</h1>
+        <form action="/predict" method="post">
+        <table>
+            <tr>
+            <td align="right">Pregnancies:</td>
+            <td align="left"><input type="text" name="Pregnancies"></td>
+        </tr>
+        <tr>
+            <td align="right">Glucose:</td>
+            <td align="left"><input type="text" name="Glucose"></td>
+        </tr>
+        <tr>
+            <td align="right">BloodPressure:</td>
+            <td align="left"><input type="text" name="BloodPressure"></td>
+        </tr>
+        <tr>
+            <td align="right">SkinThickness:</td>
+            <td align="left"><input type="text" name="SkinThickness"></td>
+        </tr>
+        <tr>
+            <td align="right">Insulin:</td>
+            <td align="left"><input type="text" name="Insulin"></td>
+        </tr>
+        <tr>
+            <td align="right">BMI:</td>
+            <td align="left"><input type="text" name="BMI"></td>
+        </tr>
+        <tr>
+            <td align="right">Diabetes Pedigree Function:</td>
+            <td align="left"><input type="text" name="Diabetes_Pedigree_Function"></td>
+        </tr>
+        <tr>
+            <td align="right">Age:</td>
+            <td align="left"><input type="textnumber" name="Age"></td>
+        </tr>
+        </table><br>
+            <button type="submit" style="height:40px; width:100px">Predict</button>
+        </form>
+        {% if prediction_text %}
+    <h2>{{ prediction_text }}</h2>
+    {% endif %}
+    </div>
+    </body>
+</html>
